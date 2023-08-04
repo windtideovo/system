@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.controller;
 
 import com.example.util.jwt;
 import jakarta.servlet.*;
@@ -29,7 +29,8 @@ public class AuthFilter implements Filter {
             boolean b = jwt.parseToken(token);
             if(b){
                 filterChain.doFilter(servletRequest, servletResponse);
-            }else{
+            }
+            else{
                 servletResponse.getWriter().println("403");
             }
         }

@@ -2,11 +2,10 @@ package com.example.service.Impl;
 
 import com.example.Dao.UserDao;
 import com.example.service.UserService;
-import org.apache.catalina.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
-@Service//查
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
