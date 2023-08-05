@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.config;
 
 import com.example.util.jwt;
 import jakarta.servlet.*;
@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebFilter("/*")
 public class AuthFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException{
 

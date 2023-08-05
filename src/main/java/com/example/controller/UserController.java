@@ -18,21 +18,19 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/register")
-    public String register(String mail, String username, String password) {
-        int register = userService.Register(mail, username, password);
+    public String register(String username, String mail, String password) {
+        int register = userService.Register(username, mail, password);
         if(register == 1){
             return "register succeed";
-            //参数可调整
         }
         else{
             return "register failed";
-            //参数可调整
         }
     }
 
     @GetMapping("/login")
-    public String login(String mail, String password){
-        int login = userService.Login(mail, password);
+    public String login(int id, String password){
+        int login = userService.Login(id, password);
         if(login == 1){
             String token = jwt.createToken("mail", "username", "role");
             return token;
@@ -41,4 +39,5 @@ public class UserController {
             return "login failed";
         }
     }
+
 }

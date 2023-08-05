@@ -2,16 +2,13 @@ package com.example.util;
 
 import io.jsonwebtoken.*;
 
-import javax.sound.midi.SysexMessage;
 import java.util.Date;
 import java.util.UUID;
-
 
 public class jwt {
 
     static long time = 1000*60*60*24;
     static String signature = "admin";
-
 
     public static String createToken(String mail, String username, String role){
         JwtBuilder jwtBuilder = Jwts.builder();
