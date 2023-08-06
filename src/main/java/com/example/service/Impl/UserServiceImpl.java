@@ -2,6 +2,7 @@ package com.example.service.Impl;
 
 import com.example.Dao.UserDao;
 import com.example.domain.Book;
+import com.example.domain.BookSort;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,8 @@ public class UserServiceImpl implements UserService {
         return login;
     }
 
-    public List<Book> getById(String bookname) {
-        return userDao.getById(bookname);
+    public List<Book> getById(String bookname) { return userDao.getById(bookname);
     }
+
+    public List<Book> getName(String name) { return userDao.getName(name);}
 }

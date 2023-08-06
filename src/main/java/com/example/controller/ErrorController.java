@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ErrorController {
 
     public String handleError() {
+        System.out.println("error");
         return "error";
     }
 

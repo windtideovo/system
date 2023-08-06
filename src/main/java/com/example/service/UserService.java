@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.domain.Book;
+import com.example.domain.BookSort;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface UserService {
     public int Login(int id, String password);
 
     public List<Book> getById(String bookname);
+
+    public List<Book> getName(String name);
 }

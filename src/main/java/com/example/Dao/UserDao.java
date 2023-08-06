@@ -2,6 +2,7 @@ package com.example.Dao;
 
 
 import com.example.domain.Book;
+import com.example.domain.BookSort;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,4 +22,7 @@ public interface UserDao {
 
     @Select("Select * from book where bookname = #{bookname}")
     public List<Book> getById(@Param("bookname") String bookname);
+
+    @Select("Select * from book where sort_id = (Select id from book_sort where name = #{name}) ")
+    public List<Book> getName(@Param("name") String name);
 }
