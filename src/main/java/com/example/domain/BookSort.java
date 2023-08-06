@@ -20,5 +20,11 @@ public class BookSort {
         this.name = name;
     }
 
-
+    @Override
+    public String toString() {
+        return "BookSort{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

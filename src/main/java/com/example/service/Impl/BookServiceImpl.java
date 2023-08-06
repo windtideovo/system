@@ -1,4 +1,18 @@
 package com.example.service.Impl;
 
-public class BookServiceImpl {
+import com.example.Dao.BookDao;
+import com.example.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+    @Autowired
+    private BookDao bookDao;
+
+    public int Addbook(String bookname, String brief, String sort) {
+        int addbook = bookDao.addbook(bookname, brief, sort);
+        return addbook;
+    }
 }

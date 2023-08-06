@@ -2,13 +2,11 @@ package com.example.controller;
 
 
 import com.example.domain.Book;
-import com.example.domain.BookSort;
+import com.example.service.BookService;
+import com.example.service.Impl.BookServiceImpl;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,9 @@ public class BookController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BookService bookService;
 
     //所有图书
     @GetMapping
@@ -39,5 +40,17 @@ public class BookController {
         public List<Book> getName(String name) {
             List<Book> search = userService.getName(name);
             return search;
+    }
+
+    //添加图书
+    @PostMapping("/add")
+        public String Addbook (String bookname, String brief, String sort) {
+            int addbook = bookService.Addbook(bookname, brief, sort);
+            if(addbook == 1) {
+                return "Add succeed";
+            }
+            else {
+                return "Add failed";
+            }
     }
 }

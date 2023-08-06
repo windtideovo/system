@@ -2,7 +2,6 @@ package com.example.Dao;
 
 
 import com.example.domain.Book;
-import com.example.domain.BookSort;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -15,7 +14,6 @@ public interface UserDao {
 
     @Insert("insert into user (username, mail, password) values (#{username}, #{mail}, #{password})")
     public int register(@Param("username") String username, @Param("mail") String mail, @Param("password") String password);
-
 
     @Select("Select count(*) from user where id = #{id} and password = #{password}")
     public int login(@Param("id") int id, @Param("password") String password);
