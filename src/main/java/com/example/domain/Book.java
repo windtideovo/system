@@ -5,6 +5,7 @@ public class Book {
     private String bookname;
     private String brief;
     private String state;
+    private String sort;
 
     public int getId() {
         return id;
@@ -38,6 +39,14 @@ public class Book {
         this.state = state;
     }
 
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -45,6 +54,7 @@ public class Book {
                 ", bookname='" + bookname + '\'' +
                 ", brief='" + brief + '\'' +
                 ", state='" + state + '\'' +
+                ", sort='" + sort + '\'' +
                 '}';
     }
 }

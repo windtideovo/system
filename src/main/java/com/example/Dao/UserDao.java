@@ -20,9 +20,12 @@ public interface UserDao {
     @Select("Select count(*) from user where id = #{id} and password = #{password}")
     public int login(@Param("id") int id, @Param("password") String password);
 
+    @Select("Select * from book")
+    public List<Book> getAll();
+
     @Select("Select * from book where bookname = #{bookname}")
     public List<Book> getById(@Param("bookname") String bookname);
 
-    @Select("Select * from book where sort_id = (Select id from book_sort where name = #{name}) ")
+    @Select("Select * from book where sort = #{name}")
     public List<Book> getName(@Param("name") String name);
 }

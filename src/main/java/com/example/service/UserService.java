@@ -11,6 +11,8 @@ public interface UserService {
 
     public int Login(int id, String password);
 
+    public List<Book> getAll();
+
     public List<Book> getById(String bookname);
 
     public List<Book> getName(String name);

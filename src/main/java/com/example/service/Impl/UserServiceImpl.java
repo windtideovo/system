@@ -27,6 +27,10 @@ public class UserServiceImpl implements UserService {
         return login;
     }
 
+    public List<Book> getAll(){
+        return userDao.getAll();
+    }
+
     public List<Book> getById(String bookname) { return userDao.getById(bookname);
     }
 

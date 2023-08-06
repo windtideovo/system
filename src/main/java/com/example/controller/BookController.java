@@ -20,15 +20,24 @@ public class BookController {
     @Autowired
     private UserService userService;
 
+    //所有图书
+    @GetMapping
+        public List<Book> getAll() {
+            List<Book> search = userService.getAll();
+            return search;
+    }
+
+    //查询图书
     @GetMapping("/bookname")
         public List<Book> getById(String bookname) {
             List<Book> search = userService.getById(bookname);
             return search;
     }
 
+    //查询图书类
     @GetMapping("/sort")
         public List<Book> getName(String name) {
-        List<Book> search = userService.getName(name);
-        return search;
+            List<Book> search = userService.getName(name);
+            return search;
     }
 }
