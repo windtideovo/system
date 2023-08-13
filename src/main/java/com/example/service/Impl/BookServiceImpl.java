@@ -15,4 +15,9 @@ public class BookServiceImpl implements BookService {
         int addbook = bookDao.addbook(bookname, brief, sort);
         return addbook;
     }
+
+    public int Quest(String username, String idea) {
+        int quest = bookDao.quest(username, idea);
+        return quest;
+    }
 }

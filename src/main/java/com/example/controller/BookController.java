@@ -53,4 +53,16 @@ public class BookController {
                 return "Add failed";
             }
     }
+
+    //提出反馈
+    @PostMapping("/quest")
+        public String Quest (String username, String idea) {
+            int quest = bookService.Quest(username, idea);
+            if(quest == 1) {
+                return "Quest getting succeed";
+            }
+            else {
+                return "Quest getting failed";
+            }
+    }
 }
