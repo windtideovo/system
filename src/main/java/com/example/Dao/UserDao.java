@@ -2,11 +2,9 @@ package com.example.Dao;
 
 
 import com.example.domain.Book;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -26,4 +24,12 @@ public interface UserDao {
 
     @Select("Select * from book where sort = #{name}")
     public List<Book> getName(@Param("name") String name);
+
+    @Update("Update book set state = '正在借阅' where bookname = #{bookname}")
+    @Update("Update borrow set borrow_date = #{borrow_date}, expiration_date = #{expiration_date}, state = '正在借阅'")
+    public int update1(@Param("bookname") String username, @Param("borrow_date") Date borrow_date, @Param("expiration_date") Date expiration_date);
+
+    @Update("Update book set state = '未借阅' where bookname = #{bookname}")
+    @Update("Update borrow set return_date = #{return_date}, state = '已还书'")
+    public int update2(@Param("bookname") String username, @Param("return_date") Date return_date);
 }

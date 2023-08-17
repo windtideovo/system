@@ -5,14 +5,16 @@ import com.example.domain.Book;
 import com.example.service.BookService;
 import com.example.service.Impl.BookServiceImpl;
 import com.example.service.UserService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/book")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BookController {
 
     @Autowired
@@ -54,6 +56,30 @@ public class BookController {
             }
     }
 
+    //修改图书
+    @PutMapping("/changing")
+        public String Changing (String brief, String sort, int id) {
+            int changing = bookService.Changing(brief, sort, id);
+            if(changing == 1) {
+                return "changing succeed";
+            }
+            else {
+                return "changing failed";
+            }
+    }
+
+    //删除图书
+    @DeleteMapping("/delete")
+        public String Delete (int id) {
+            int delete = bookService.Delete(id);
+            if(delete == 1) {
+                return "delete succeed";
+            }
+            else {
+                return "delete fail";
+            }
+    }
+
     //提出反馈
     @PostMapping("/quest")
         public String Quest (String username, String idea) {
@@ -64,5 +90,29 @@ public class BookController {
             else {
                 return "Quest getting failed";
             }
+    }
+
+    //借书
+    @PutMapping("/borrow")
+        public String Update1 (String bookname, Date borrow_date, Date expiration_date) {
+            int update1 = userService.Update1(bookname, borrow_date, expiration_date);
+            if(update1 == 1) {
+                return "borrow succeed";
+            }
+            else {
+                return "borrow failed";
+            }
+    }
+
+    //还书
+    @PutMapping("/return")
+    public String Update2 (String bookname, Date return_date) {
+        int update2 = userService.Update2(bookname, return_date);
+        if(update2 == 1) {
+            return "return succeed";
+        }
+        else {
+            return "return failed";
+        }
     }
 }

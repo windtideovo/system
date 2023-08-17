@@ -20,4 +20,14 @@ public class BookServiceImpl implements BookService {
         int quest = bookDao.quest(username, idea);
         return quest;
     }
+
+    public int Changing(String brief, String sort, int id) {
+        int changing = bookDao.changing(brief, sort, id);
+        return changing;
+    }
+
+    public int Delete(int id) {
+        int delete = bookDao.delete(id);
+        return delete;
+    }
 }
